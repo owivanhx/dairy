@@ -1,12 +1,11 @@
-/* Variáveis de Cores Atualizadas */
 :root {
     --egyptian-blue: #1B22A6;
     --truesky-gloxym: #9EB3FF;
-    --pink-quartz: #FFBFEC;
+    --pink-quartz: #FFBFEC; /* Nova cor das páginas para destacar do fundo */
     --calcareous-sinter: #DEEDFF;
     --blue-titmouse: #456AFF;
-    --spring-heat: #FFFCDE; /* Cor creme/marfim de fundo da imagem */
-    --polka-dot-blue: #BCD6FA; /* Tom exato do azul das bolinhas */
+    --spring-heat: #FFFCDE; 
+    --polka-dot-blue: #BCD6FA; 
 }
 
 * {
@@ -16,18 +15,11 @@
 }
 
 body {
-    /* Cor de fundo base (Creme/Marfim) */
     background-color: var(--spring-heat);
-    
-    /* Criação do padrão de bolinhas alternadas (Polka Dots) via CSS */
     background-image: 
         radial-gradient(var(--polka-dot-blue) 15%, transparent 16%),
         radial-gradient(var(--polka-dot-blue) 15%, transparent 16%);
-    
-    /* Define o tamanho do padrão (distância entre as bolinhas) */
     background-size: 60px 60px;
-    
-    /* Desloca o segundo gradiente para criar o efeito desencontrado igual à imagem */
     background-position: 0 0, 30px 30px;
     
     height: 100vh;
@@ -35,17 +27,15 @@ body {
     justify-content: center;
     align-items: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow: hidden; /* Evita barras de rolagem indesejadas */
+    overflow: hidden;
 }
 
-/* Container do Diário */
 .diario-container {
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
-/* Configuração 3D do Caderno */
 .caderno {
     position: relative;
     width: 400px;
@@ -53,7 +43,6 @@ body {
     perspective: 1500px;
 }
 
-/* Estilo Geral das Páginas */
 .pagina {
     position: absolute;
     width: 100%;
@@ -65,7 +54,6 @@ body {
     transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-/* Faces da página (Frente e Verso) */
 .face {
     position: absolute;
     width: 100%;
@@ -73,7 +61,7 @@ body {
     backface-visibility: hidden;
     padding: 30px;
     border-radius: 0 15px 15px 0;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 5px 5px 20px rgba(27, 34, 166, 0.25); /* Sombra baseada no azul escuro */
 }
 
 .face.verso {
@@ -81,7 +69,7 @@ body {
     border-radius: 15px 0 0 15px;
 }
 
-/* Capas do Diário */
+/* Capas marcantes em Azul Escuro */
 .capa-design {
     background-color: var(--egyptian-blue);
     color: var(--spring-heat);
@@ -102,10 +90,10 @@ body {
     color: var(--pink-quartz);
 }
 
-/* Folhas Pautadas (Linhas de caderno) */
+/* Folhas do Diário diferenciadas do fundo do site */
 .folha-pautada {
-    background-color: var(--spring-heat);
-    background-image: linear-gradient(var(--truesky-gloxym) 1px, transparent 1px);
+    background-color: var(--pink-quartz); /* Rosa quartzo para contraste total */
+    background-image: linear-gradient(var(--egyptian-blue) 1px, transparent 1px); /* Linhas escuras */
     background-size: 100% 30px;
     line-height: 30px;
     padding-top: 45px;
@@ -113,12 +101,11 @@ body {
 
 .folha-pautada .data {
     display: block;
-    color: var(--blue-titmouse);
+    color: var(--egyptian-blue);
     font-weight: bold;
     margin-bottom: 15px;
 }
 
-/* Textarea invisível sobre as linhas */
 .folha-pautada textarea {
     width: 100%;
     height: 85%;
@@ -128,21 +115,23 @@ body {
     font-family: 'Courier New', Courier, monospace;
     font-size: 18px;
     line-height: 30px;
-    color: #333;
+    color: var(--egyptian-blue);
+}
+
+.folha-pautada textarea::placeholder {
+    color: rgba(27, 34, 166, 0.6);
 }
 
 .folha-pautada textarea:focus {
     outline: none;
 }
 
-/* Classe de animação aplicada via JS */
 .pagina.virada {
     transform: rotateY(-180deg);
 }
 
-/* Botões de Navegação */
 .nav-btn {
-    background-color: var(--blue-titmouse);
+    background-color: var(--egyptian-blue);
     color: white;
     border: none;
     border-radius: 50%;
@@ -152,9 +141,10 @@ body {
     cursor: pointer;
     transition: 0.3s;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 20;
 }
 
 .nav-btn:hover {
-    background-color: var(--egyptian-blue);
+    background-color: var(--blue-titmouse);
     transform: scale(1.1);
 }
