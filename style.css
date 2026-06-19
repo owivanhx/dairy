@@ -1,11 +1,12 @@
-/* Variáveis de Cores da Imagem */
+/* Variáveis de Cores Atualizadas */
 :root {
     --egyptian-blue: #1B22A6;
     --truesky-gloxym: #9EB3FF;
     --pink-quartz: #FFBFEC;
     --calcareous-sinter: #DEEDFF;
     --blue-titmouse: #456AFF;
-    --spring-heat: #FFFCDE;
+    --spring-heat: #FFFCDE; /* Cor creme/marfim de fundo da imagem */
+    --polka-dot-blue: #BCD6FA; /* Tom exato do azul das bolinhas */
 }
 
 * {
@@ -15,12 +16,26 @@
 }
 
 body {
-    background: linear-gradient(135deg, var(--calcareous-sinter), var(--pink-quartz));
+    /* Cor de fundo base (Creme/Marfim) */
+    background-color: var(--spring-heat);
+    
+    /* Criação do padrão de bolinhas alternadas (Polka Dots) via CSS */
+    background-image: 
+        radial-gradient(var(--polka-dot-blue) 15%, transparent 16%),
+        radial-gradient(var(--polka-dot-blue) 15%, transparent 16%);
+    
+    /* Define o tamanho do padrão (distância entre as bolinhas) */
+    background-size: 60px 60px;
+    
+    /* Desloca o segundo gradiente para criar o efeito desencontrado/alternado igual à imagem */
+    background-position: 0 0, 30px 30px;
+    
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden; /* Evita barras de rolagem indesejadas no fundo */
 }
 
 /* Container do Diário */
