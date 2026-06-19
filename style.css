@@ -1,8 +1,8 @@
 :root {
     --egyptian-blue: #1B22A6;
     --truesky-gloxym: #9EB3FF;
-    --pink-quartz: #FFBFEC; /* Nova cor das páginas para destacar do fundo */
-    --calcareous-sinter: #DEEDFF;
+    --pink-quartz: #FFBFEC; 
+    --calcareous-sinter: #DEEDFF; 
     --blue-titmouse: #456AFF;
     --spring-heat: #FFFCDE; 
     --polka-dot-blue: #BCD6FA; 
@@ -61,7 +61,7 @@ body {
     backface-visibility: hidden;
     padding: 30px;
     border-radius: 0 15px 15px 0;
-    box-shadow: 5px 5px 20px rgba(27, 34, 166, 0.25); /* Sombra baseada no azul escuro */
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.15); 
 }
 
 .face.verso {
@@ -69,31 +69,25 @@ body {
     border-radius: 15px 0 0 15px;
 }
 
-/* Capas marcantes em Azul Escuro */
-.capa-design {
-    background-color: var(--egyptian-blue);
-    color: var(--spring-heat);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 5px solid var(--blue-titmouse);
+/* NOVA CLASSE: Configuração da Capa usando Imagem JPG */
+.capa-imagem {
+    background-image: url('stormposter.jpg'); /* Nome exato da sua imagem salva na pasta */
+    background-size: cover;            /* Faz a imagem cobrir toda a capa */
+    background-position: center;        /* Centraliza o corte da imagem */
+    background-repeat: no-repeat;
+    border: 3px solid var(--egyptian-blue); /* Uma borda estilizada para emoldurar */
 }
 
-.capa-design h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+/* Estilo para as Contra-Capas (Sem linhas) */
+.contra-capa {
+    background-color: #9EB3FF); 
+    border: 1px solid rgba(27, 34, 166, 0.1);
 }
 
-.decoracao-estrelas {
-    font-size: 2rem;
-    color: var(--pink-quartz);
-}
-
-/* Folhas do Diário diferenciadas do fundo do site */
+/* Folhas do Diário */
 .folha-pautada {
-    background-color: var(--pink-quartz); /* Rosa quartzo para contraste total */
-    background-image: linear-gradient(var(--egyptian-blue) 1px, transparent 1px); /* Linhas escuras */
+    background-color: var(--calcareous-sinter); 
+    background-image: linear-gradient(var(--truesky-gloxym) 1px, transparent 1px); 
     background-size: 100% 30px;
     line-height: 30px;
     padding-top: 45px;
@@ -101,7 +95,7 @@ body {
 
 .folha-pautada .data {
     display: block;
-    color: var(--egyptian-blue);
+    color: var(--blue-titmouse);
     font-weight: bold;
     margin-bottom: 15px;
 }
@@ -115,11 +109,11 @@ body {
     font-family: 'Courier New', Courier, monospace;
     font-size: 18px;
     line-height: 30px;
-    color: var(--egyptian-blue);
+    color: #222;
 }
 
 .folha-pautada textarea::placeholder {
-    color: rgba(27, 34, 166, 0.6);
+    color: rgba(69, 106, 255, 0.5);
 }
 
 .folha-pautada textarea:focus {
