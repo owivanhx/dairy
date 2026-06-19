@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Diário Digital</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="diario-container">
+        <button id="btn-voltar" class="nav-btn">&larr;</button>
+
+        <div id="caderno" class="caderno">
+            
+            <div class="pagina capa-frontal" style="z-index: 10;">
+                <div class="face frente capa-design">
+                    <h1>Meu Diário</h1>
+                    <div class="decoracao-estrelas">&#10024;</div>
+                </div>
+                <div class="face verso"></div>
+            </div>
+
+            <div class="pagina" style="z-index: 9;">
+                <div class="face frente folha-pautada">
+                    <span class="data">Data: ___/___/_____</span>
+                    <textarea placeholder="Querido diário, hoje o dia foi..."></textarea>
+                </div>
+                <div class="face verso folha-pautada">
+                    <span class="data">Data: ___/___/_____</span>
+                    <textarea placeholder="Continuação..."></textarea>
+                </div>
+            </div>
+
+            <div class="pagina" style="z-index: 8;">
+                <div class="face frente folha-pautada">
+                    <span class="data">Data: ___/___/_____</span>
+                    <textarea placeholder="Escreva mais aqui..."></textarea>
+                </div>
+                <div class="face verso folha-pautada">
+                    <span class="data">Data: ___/___/_____</span>
+                    <textarea placeholder="Mais pensamentos..."></textarea>
+                </div>
+            </div>
+
+            <div class="pagina capa-traseira" style="z-index: 7;">
+                <div class="face frente"></div>
+                <div class="face verso capa-design">
+                    <p>Fim do Diário</p>
+                </div>
+            </div>
+
+        </div>
+
+        <button id="btn-avancar" class="nav-btn">&rarr;</button>
+    </div>
+
+    <script href="script.js"></script>
+</body>
+</html>
