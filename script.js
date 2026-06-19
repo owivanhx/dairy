@@ -10,7 +10,7 @@ function atualizarDiario() {
         if (index < paginaAtual) {
             // Páginas anteriores viram para a esquerda
             pagina.classList.add("virada");
-            // Ajusta o z-index para que a página virada mais recente fique por cima
+            // Ajusta o z-index para que a folha virada mais recente fique por cima
             pagina.style.zIndex = 10 + index;
         } else {
             // Páginas futuras voltam para a posição original
@@ -35,5 +35,5 @@ btnVoltar.addEventListener("click", () => {
     }
 });
 
-// Inicializa as posições de z-index corretas
+// Inicializa as posições de z-index corretas ao carregar o site
 atualizarDiario();
