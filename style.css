@@ -27,7 +27,7 @@ body {
     /* Define o tamanho do padrão (distância entre as bolinhas) */
     background-size: 60px 60px;
     
-    /* Desloca o segundo gradiente para criar o efeito desencontrado/alternado igual à imagem */
+    /* Desloca o segundo gradiente para criar o efeito desencontrado igual à imagem */
     background-position: 0 0, 30px 30px;
     
     height: 100vh;
@@ -35,7 +35,7 @@ body {
     justify-content: center;
     align-items: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow: hidden; /* Evita barras de rolagem indesejadas no fundo */
+    overflow: hidden; /* Evita barras de rolagem indesejadas */
 }
 
 /* Container do Diário */
@@ -105,11 +105,10 @@ body {
 /* Folhas Pautadas (Linhas de caderno) */
 .folha-pautada {
     background-color: var(--spring-heat);
-    /* Criando as linhas usando gradiente linear */
     background-image: linear-gradient(var(--truesky-gloxym) 1px, transparent 1px);
     background-size: 100% 30px;
     line-height: 30px;
-    padding-top: 45px; /* Espaço para a margem superior */
+    padding-top: 45px;
 }
 
 .folha-pautada .data {
@@ -136,7 +135,7 @@ body {
     outline: none;
 }
 
-/* Classe aplicada via JS para virar a página */
+/* Classe de animação aplicada via JS */
 .pagina.virada {
     transform: rotateY(-180deg);
 }
