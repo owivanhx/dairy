@@ -8,32 +8,42 @@ const totalPaginas = paginas.length;
 function atualizarDiario() {
     paginas.forEach((pagina, index) => {
         if (index < paginaAtual) {
-            // Páginas anteriores viram para a esquerda
             pagina.classList.add("virada");
-            // Ajusta o z-index para que a folha virada mais recente fique por cima
             pagina.style.zIndex = 10 + index;
         } else {
-            // Páginas futuras voltam para a posição original
             pagina.classList.remove("virada");
-            // Restaura o z-index original decrescente
             pagina.style.zIndex = totalPaginas - index;
         }
     });
 }
 
-btnAvancar.addEventListener("click", () => {
+function avancarPagina() {
     if (paginaAtual < totalPaginas) {
         paginaAtual++;
         atualizarDiario();
     }
-});
+}
 
-btnVoltar.addEventListener("click", () => {
+function voltarPagina() {
     if (paginaAtual > 0) {
         paginaAtual--;
         atualizarDiario();
     }
+}
+
+btnAvancar.addEventListener("click", avancarPagina);
+btnVoltar.addEventListener("click", voltarPagina);
+
+paginas.forEach((pagina, index) => {
+    pagina.addEventListener("click", (e) => {
+        if (e.target.tagName === "TEXTAREA") return;
+
+        if (index < paginaAtual) {
+            voltarPagina();
+        } else if (index === paginaAtual) {
+            avancarPagina();
+        }
+    });
 });
 
-// Inicializa as posições de z-index corretas ao carregar o site
 atualizarDiario();
