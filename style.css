@@ -1,9 +1,12 @@
+/* Nova Paleta de Cores da Imagem */
 :root {
-    --egyptian-blue: #1B22A6;
-    --truesky-gloxym: #9EB3FF;
-    --pink-quartz: #FFBFEC; 
-    --calcareous-sinter: #DEEDFF; 
-    --blue-titmouse: #456AFF;
+    --honeydew: #F6FFEA;       /* Tom claríssimo para o fundo das folhas */
+    --soft-peach: #FFDE96;     /* Amarelo/laranja suave */
+    --coral-glow: #FA855A;     /* Coral vibrante */
+    --tomato-jam: #C93638;     /* Vermelho marcante para a capa de trás */
+    --sky-blue: #62C4DA;       /* Azul para linhas, botões e detalhes */
+    
+    /* Mantendo as cores do fundo do site conforme combinado antes */
     --spring-heat: #FFFCDE; 
     --polka-dot-blue: #BCD6FA; 
 }
@@ -31,9 +34,12 @@ body {
 }
 
 .diario-container {
+    position: relative;
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 20px;
+    width: 100%;
+    max-width: 800px;
 }
 
 .caderno {
@@ -61,7 +67,7 @@ body {
     backface-visibility: hidden;
     padding: 30px;
     border-radius: 0 15px 15px 0;
-    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.15); 
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.12); 
 }
 
 .face.verso {
@@ -69,25 +75,41 @@ body {
     border-radius: 15px 0 0 15px;
 }
 
-/* NOVA CLASSE: Configuração da Capa usando Imagem JPG */
+/* Capa Frontal com Imagem */
 .capa-imagem {
-    background-image: url('stormposter.jpg'); /* Nome exato da sua imagem salva na pasta */
-    background-size: cover;            /* Faz a imagem cobrir toda a capa */
-    background-position: center;        /* Centraliza o corte da imagem */
+    background-image: url('sora.jpg'); 
+    background-size: cover;            
+    background-position: center;        
     background-repeat: no-repeat;
-    border: 3px solid var(--egyptian-blue); /* Uma borda estilizada para emoldurar */
+    border: 3px solid var(--sky-blue); 
 }
 
-/* Estilo para as Contra-Capas (Sem linhas) */
+/* Capa Traseira usando a cor Tomato Jam */
+.capa-final-cor {
+    background-color: var(--tomato-jam);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid var(--coral-glow);
+}
+
+.fim-texto {
+    color: var(--honeydew);
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* Contra-Capas Internas (Lisas e suaves em Soft Peach) */
 .contra-capa {
-    background-color: #9EB3FF); 
-    border: 1px solid rgba(27, 34, 166, 0.1);
+    background-color: var(--soft-peach); 
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-/* Folhas do Diário */
+/* Folhas do Diário usando a cor clara Honeydew e linhas Sky Blue */
 .folha-pautada {
-    background-color: var(--calcareous-sinter); 
-    background-image: linear-gradient(var(--truesky-gloxym) 1px, transparent 1px); 
+    background-color: var(--honeydew); 
+    background-image: linear-gradient(var(--sky-blue) 1px, transparent 1px); 
     background-size: 100% 30px;
     line-height: 30px;
     padding-top: 45px;
@@ -95,7 +117,7 @@ body {
 
 .folha-pautada .data {
     display: block;
-    color: var(--blue-titmouse);
+    color: var(--coral-glow);
     font-weight: bold;
     margin-bottom: 15px;
 }
@@ -109,11 +131,7 @@ body {
     font-family: 'Courier New', Courier, monospace;
     font-size: 18px;
     line-height: 30px;
-    color: #222;
-}
-
-.folha-pautada textarea::placeholder {
-    color: rgba(69, 106, 255, 0.5);
+    color: #2b3a1a; /* Tom verde escuro bem sutil para combinar com o Honeydew */
 }
 
 .folha-pautada textarea:focus {
@@ -124,8 +142,12 @@ body {
     transform: rotateY(-180deg);
 }
 
+/* Setinhas usando a cor Sky Blue e Coral Glow no hover */
 .nav-btn {
-    background-color: var(--egyptian-blue);
+    position: absolute; 
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--sky-blue);
     color: white;
     border: none;
     border-radius: 50%;
@@ -134,11 +156,24 @@ body {
     font-size: 20px;
     cursor: pointer;
     transition: 0.3s;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    z-index: 20;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    z-index: 100; 
+}
+
+.btn-esquerda {
+    left: -80px; 
+}
+
+.btn-direita {
+    right: -80px;
 }
 
 .nav-btn:hover {
-    background-color: var(--blue-titmouse);
-    transform: scale(1.1);
+    background-color: var(--coral-glow);
+    transform: translateY(-50%) scale(1.1);
+}
+
+@media (max-width: 600px) {
+    .btn-esquerda { left: 10px; }
+    .btn-direita { right: 10px; }
 }
