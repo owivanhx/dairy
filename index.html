@@ -10,7 +10,7 @@
 <body>
 
     <div class="diario-container">
-        <button id="btn-voltar" class="nav-btn">&larr;</button>
+        <button id="btn-voltar" class="nav-btn btn-esquerda">&larr;</button>
 
         <div id="caderno" class="caderno">
             
@@ -43,12 +43,14 @@
 
             <div class="pagina capa-traseira" style="z-index: 7;">
                 <div class="face frente contra-capa"></div>
-                <div class="face verso capa-imagem"></div>
+                <div class="face verso capa-final-cor">
+                    <p class="fim-texto">Fim</p>
+                </div>
             </div>
 
         </div>
 
-        <button id="btn-avancar" class="nav-btn">&rarr;</button>
+        <button id="btn-avancar" class="nav-btn btn-direita">&rarr;</button>
     </div>
 
     <script src="script.js"></script>
