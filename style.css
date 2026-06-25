@@ -1,14 +1,11 @@
-/* Nova Paleta de Cores da Imagem */
+/* Nova Paleta de Cores Combinada */
 :root {
-    --honeydew: #F6FFEA;       /* Tom claríssimo para o fundo das folhas */
-    --soft-peach: #FFDE96;     /* Amarelo/laranja suave */
-    --coral-glow: #FA855A;     /* Coral vibrante */
-    --tomato-jam: #C93638;     /* Vermelho marcante para a capa de trás */
-    --sky-blue: #62C4DA;       /* Azul para linhas, botões e detalhes */
-    
-    /* Mantendo as cores do fundo do site conforme combinado antes */
-    --spring-heat: #FFFCDE; 
-    --polka-dot-blue: #BCD6FA; 
+    --honeydew: #F6FFEA;       
+    --soft-peach: #FFDE96;     
+    --coral-glow: #FA855A;     
+    --tomato-jam: #C93638;     
+    --sky-blue: #62C4DA;       
+    --spring-heat: #FFFCDE; /* Cor de fundo suave para o site */
 }
 
 * {
@@ -19,18 +16,23 @@
 
 body {
     background-color: var(--spring-heat);
-    background-image: 
-        radial-gradient(var(--polka-dot-blue) 15%, transparent 16%),
-        radial-gradient(var(--polka-dot-blue) 15%, transparent 16%);
-    background-size: 60px 60px;
-    background-position: 0 0, 30px 30px;
-    
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow: hidden;
+}
+
+/* Configuração do Canvas no fundo */
+#fundo-petalas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Fica atrás de tudo */
+    pointer-events: none; /* Não atrapalha cliques nos botões ou texto */
 }
 
 .diario-container {
@@ -84,7 +86,7 @@ body {
     border: 3px solid var(--sky-blue); 
 }
 
-/* Capa Traseira usando a cor Tomato Jam */
+/* Capa Traseira */
 .capa-final-cor {
     background-color: var(--tomato-jam);
     display: flex;
@@ -100,13 +102,13 @@ body {
     letter-spacing: 2px;
 }
 
-/* Contra-Capas Internas (Lisas e suaves em Soft Peach) */
+/* Contra-Capas Internas */
 .contra-capa {
     background-color: var(--soft-peach); 
     border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-/* Folhas do Diário usando a cor clara Honeydew e linhas Sky Blue */
+/* Folhas do Diário */
 .folha-pautada {
     background-color: var(--honeydew); 
     background-image: linear-gradient(var(--sky-blue) 1px, transparent 1px); 
@@ -131,7 +133,7 @@ body {
     font-family: 'Courier New', Courier, monospace;
     font-size: 18px;
     line-height: 30px;
-    color: #2b3a1a; /* Tom verde escuro bem sutil para combinar com o Honeydew */
+    color: #2b3a1a; 
 }
 
 .folha-pautada textarea:focus {
@@ -142,7 +144,7 @@ body {
     transform: rotateY(-180deg);
 }
 
-/* Setinhas usando a cor Sky Blue e Coral Glow no hover */
+/* Botões de Navegação */
 .nav-btn {
     position: absolute; 
     top: 50%;
