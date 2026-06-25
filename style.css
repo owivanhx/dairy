@@ -35,13 +35,14 @@ body {
     pointer-events: none; /* Não atrapalha cliques nos botões ou texto */
 }
 
+/* --- ATUALIZAÇÃO NO CONTAINER --- */
 .diario-container {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    max-width: 800px;
+    width: 100vw; /* Ocupa a largura total da tela */
+    height: 100vh; /* Ocupa a altura total da tela */
 }
 
 .caderno {
@@ -144,7 +145,7 @@ body {
     transform: rotateY(-180deg);
 }
 
-/* Botões de Navegação */
+/* --- ATUALIZAÇÃO REVOLUCIONÁRIA DAS SETAS --- */
 .nav-btn {
     position: absolute; 
     top: 50%;
@@ -153,21 +154,23 @@ body {
     color: white;
     border: none;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
+    width: 55px; /* Aumentei um pouquinho para dar mais destaque */
+    height: 55px;
+    font-size: 22px;
     cursor: pointer;
     transition: 0.3s;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    z-index: 100; 
+    z-index: 200; /* Força a ficar na frente de absolutamente qualquer folha 3D */
 }
 
+/* Em vez de usar valores negativos grudados no centro, 
+   jogamos elas fixas em relação às extremidades da tela! */
 .btn-esquerda {
-    left: -80px; 
+    left: 40px; /* Garante um espaçamento seguro da borda esquerda da tela */
 }
 
 .btn-direita {
-    right: -80px;
+    right: 40px; /* Garante um espaçamento seguro da borda direita da tela */
 }
 
 .nav-btn:hover {
@@ -175,7 +178,10 @@ body {
     transform: translateY(-50%) scale(1.1);
 }
 
+/* Responsividade: Caso a tela seja muito pequena (como um celular), 
+   as setas chegam mais perto da borda para não esmagar o caderno */
 @media (max-width: 600px) {
-    .btn-esquerda { left: 10px; }
-    .btn-direita { right: 10px; }
+    .btn-esquerda { left: 15px; }
+    .btn-direita { right: 15px; }
+    .nav-btn { width: 45px; height: 45px; font-size: 18px; }
 }
